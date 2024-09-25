@@ -29,7 +29,11 @@
             formData.append('pdf_file', document.getElementById('pdf_file').files[0]);
 
             try {
-                const response = await fetch('http://localhost:8000/process', {
+				let location = window.location.href;
+				let locationParts = location.split('/');
+				locationParts.pop();
+				let endpoint = locationParts.join('/') + "/process";
+                const response = await fetch(endpoint, {
                     method: 'POST',
                     body: formData
                 });
