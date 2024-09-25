@@ -40,16 +40,17 @@
                     const a = document.createElement('a');
                     a.style.display = 'none';
                     a.href = url;
-                    a.download = 'filled_form.pdf';
+                    a.download = 'filled_forms.zip';
                     document.body.appendChild(a);
                     a.click();
                     window.URL.revokeObjectURL(url);
+                    alert('Output file downloading...');
                 } else {
-                    alert('Error processing files. Please try again.');
+					alert(`Error processing files (${error}). Please try again.`);
                 }
             } catch (error) {
-                console.error('Error:', error);
-                alert('An error occurred. Please try again.');
+				console.error('Error:', error);
+                alert(`An error occurred (${error}). Please try again.`);
             }
         });
     </script>
